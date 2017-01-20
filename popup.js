@@ -1,4 +1,9 @@
-function getSelText()
+
+var firstHref = $("a[href^='http']").eq(0).attr("href");
+
+console.log(firstHref);
+
+/*function getSelText()
 {
 	var txt='';
 	if (window.getSelection)
@@ -18,6 +23,7 @@ function getSelText()
 }
 
 document.addEventListener('DOMContentLoaded', function() {  
+    console.log("Sanskrit Dictionary loaded.");
 	var dictresult = document.getElementById('dict-result');  
 	dictresult.textContent='Extension started';	
     
@@ -36,4 +42,4 @@ document.addEventListener('DOMContentLoaded', function() {
 	  alert(httpContent);
 	}    
 	
-}, false);
+}, false);*/
