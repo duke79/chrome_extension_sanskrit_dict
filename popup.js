@@ -1,5 +1,4 @@
 var mSelectedText;
-
 function getSelText()
 {
 	var txt='';
@@ -19,33 +18,26 @@ function getSelText()
 	else return 'not found!';            
 }
 
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+
 $( "*" ).mouseup(function() {
   var text = getSelText();
+  if(text!=null)
+	  text = text.trim();
   if(text!=null && text!=mSelectedText)
   {
 	  mSelectedText=text;
-	  console.log(mSelectedText);
-  }  
-});
-
-document.addEventListener('DOMContentLoaded', function() {  
-    console.log("Sanskrit Dictionary loaded.");
-	var dictresult = document.getElementById('dict-result');  
-	dictresult.textContent='Extension started';	
-    
-	//chrome.tabs.executeScript(null, {code: 'window.alert("doc="'});
-	//window.alert('doc='+document.documentElement.innerHTML);      
-	
-	var txt = getSelText();       	
-	
-	dictresult.textContent='txt='+txt;
-	if (/[\u0900-\u097F]/.test(txt)) {            
-	  alert(txt);
-	  var url = 'https://spokensanskrit.de/index.php?beginning=0+&tinput='+txt+'&trans=Translate';
+	  console.log("Text: "+mSelectedText);
+	  var url = 'https://spokensanskrit.de/index.php?beginning=0+&tinput='+mSelectedText+'&trans=Translate';console.log("URL: "+url);	                     
 		
 	  var httpContent = httpGet(url);          
-		alert('after fetch: '+txt);
-	  alert(httpContent);
-	}    
-	
-}, false);
+	  console.log('after fetch: '+mSelectedText);
+	  console.log(httpContent);
+  }  
+});
