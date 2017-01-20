@@ -34,7 +34,7 @@ $( "*" ).mouseup(function() {
   {
 	  mSelectedText=text;
 	  console.log("Text: "+mSelectedText);
-	  var url = 'https://spokensanskrit.de/index.php?beginning=0+&tinput='+mSelectedText+'&trans=Translate';console.log("URL: "+url);	                     
+	  var url = 'http://spokensanskrit.de/index.php?beginning=0+&tinput='+mSelectedText+'&trans=Translate';console.log("URL: "+url);	                     
 		
 	  var httpContent = httpGet(url);          
 	  console.log('after fetch: '+mSelectedText);
