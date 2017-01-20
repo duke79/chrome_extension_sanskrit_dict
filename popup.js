@@ -1,9 +1,6 @@
+var mSelectedText;
 
-var firstHref = $("a[href^='http']").eq(0).attr("href");
-
-console.log(firstHref);
-
-/*function getSelText()
+function getSelText()
 {
 	var txt='';
 	if (window.getSelection)
@@ -21,6 +18,15 @@ console.log(firstHref);
 	}
 	else return 'not found!';            
 }
+
+$( "*" ).mouseup(function() {
+  var text = getSelText();
+  if(text!=null && text!=mSelectedText)
+  {
+	  mSelectedText=text;
+	  console.log(mSelectedText);
+  }  
+});
 
 document.addEventListener('DOMContentLoaded', function() {  
     console.log("Sanskrit Dictionary loaded.");
@@ -42,4 +48,4 @@ document.addEventListener('DOMContentLoaded', function() {
 	  alert(httpContent);
 	}    
 	
-}, false);*/
+}, false);
